@@ -3,7 +3,7 @@ This is simple kernel made by me toni for learning, GPL license and some of the 
 
 ## Build
 ```
-make
+
 ./run.sh
 ```
 

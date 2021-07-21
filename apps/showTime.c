@@ -11,6 +11,7 @@
 
 int main_show_time()
 {
+	console_clear();
 	time_t t = time(NULL);
 	int hour, minute, second;
 	second = t%60;

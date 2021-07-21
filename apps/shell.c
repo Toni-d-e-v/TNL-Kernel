@@ -11,6 +11,7 @@
 #include "time.h"
 #include "math.h"
 #include "apps/shell.h"
+#include "apps/calc.h"
 
 #define SHELL_MAX_LENGTH 1024
 
@@ -28,6 +29,14 @@ void dealShell(char* shell)
 	{
 		result = main_show_time();
 	}
+	else if (!strcmp(shell, "calc"))
+	{
+		result = main_calc();
+	}
+		else if (!strcmp(shell, "clock"))
+	{
+		result = main_clock();
+	}
 	else if (!strcmp(shell, "rand"))
 	{
 		printf("%d\n", abs(rand()));
@@ -42,6 +51,8 @@ void dealShell(char* shell)
 		printf("This shell support the follows commands:\n");
 		printf("reboot    ------ Reboot you system.\n");
 		printf("clear     ------ Clear the screen.\n");
+		printf("clac    ------ Calculator.\n");
+		printf("clock    ------ Clock.\n");
 		printf("time      ------ Show now system time.\n");
 		printf("rand      ------ Create a rand number.\n");
 		printf("help      ------ Show the help documents.\n");
@@ -52,7 +63,7 @@ void dealShell(char* shell)
 	}
 	else
 	{
-		printf("Sorry, the command you just inputed is not supported, if you have any question, run help\n");
+		printf("Unknown Command, help for commands\n");
 	}
 
 	if (result)
@@ -65,18 +76,20 @@ void dealShell(char* shell)
 int main_shell()
 {
 	char sh[SHELL_MAX_LENGTH];
+	setTextColor(rc_black, rc_light_brown);
+
 	srand(time(NULL));
 	printf("    (>---<)\n ");
     printf("  ,'     `.\n ");
     printf(" /  q   p  \\ \n ");
     printf("(  >(_Y_)<  )\n ");
-    printf(" >-' `-' `-<-. \n ");
+    printf(" >-' `-' `-< \n ");
     printf("Version 0.0.5\n");
 	printf("REWRITE EDITION\n");
 
 	while(1)
 	{
-		setTextColor(rc_light_red, rc_magenta);
+		setTextColor(rc_black, rc_white);
 		printf("Shell >");
 		setTextColor(rc_black, rc_white);
 		printf(" ");
