@@ -25,6 +25,10 @@ void dealShell(char* shell)
 	{
 		reboot();
 	}
+	else if (!strcmp(shell, "snake"))
+	{
+		result = main_snake(s);
+	}
 	else if (!strcmp(shell, "time"))
 	{
 		result = main_show_time();
